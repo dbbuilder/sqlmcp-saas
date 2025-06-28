@@ -1,7 +1,9 @@
 'use client'
 
 import React from 'react'
-import { Database, Key, Activity, Plus, Settings, ExternalLink } from 'lucide-react'
+import { Database, Key, Activity, Plus, Settings, ExternalLink, Trash2, RefreshCw } from 'lucide-react'
+import { ConnectionWizard } from './ConnectionWizard'
+import { getConnections, deleteConnection } from '../services/connections'
 
 interface Connection {
   id: string
@@ -18,7 +20,7 @@ interface DashboardProps {
     email: string
     plan: 'FREE' | 'STARTER' | 'PRO' | 'ENTERPRISE'
   }
-  connections: Connection[]
+  initialConnections?: Connection[]
   usage: {
     queriesThisMonth: number
     queryLimit: number
@@ -27,8 +29,11 @@ interface DashboardProps {
   }
 }
 
-export default function Dashboard({ user, connections, usage }: DashboardProps) {
+export default function Dashboard({ user, initialConnections = [], usage }: DashboardProps) {
+  const [connections, setConnections] = React.useState<Connection[]>(initialConnections)
   const [selectedConnection, setSelectedConnection] = React.useState<string | null>(null)
+  const [showConnectionWizard, setShowConnectionWizard] = React.useState(false)
+  const [loading, setLoading] = React.useState(false)
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -111,7 +116,9 @@ export default function Dashboard({ user, connections, usage }: DashboardProps) 
           <div className="px-6 py-4 border-b border-gray-200">
             <div className="flex items-center justify-between">
               <h2 className="text-lg font-semibold">SQL Server Connections</h2>
-              <button className="flex items-center px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition">
+              <button 
+                onClick={() => setShowConnectionWizard(true)}
+                className="flex items-center px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition">
                 <Plus className="h-4 w-4 mr-2" />
                 Add Connection
               </button>
@@ -123,7 +130,9 @@ export default function Dashboard({ user, connections, usage }: DashboardProps) 
               <div className="px-6 py-12 text-center">
                 <Database className="h-12 w-12 text-gray-400 mx-auto mb-4" />
                 <p className="text-gray-500 mb-4">No connections yet</p>
-                <button className="text-blue-600 hover:text-blue-700 font-medium">
+                <button 
+                  onClick={() => setShowConnectionWizard(true)}
+                  className="text-blue-600 hover:text-blue-700 font-medium">
                   Add your first connection →
                 </button>
               </div>
@@ -182,6 +191,58 @@ export default function Dashboard({ user, connections, usage }: DashboardProps) 
           </button>
         </div>
       </div>
+
+      {/* Connection Wizard Modal */}
+      <ConnectionWizard
+        isOpen={showConnectionWizard}
+        onClose={() => setShowConnectionWizard(false)}
+        onSuccess={handleConnectionSuccess}
+      />
     </div>
   )
+  
+  // Handle successful connection creation
+  async function handleConnectionSuccess(newConnection: any) {
+    // Add the new connection to the list
+    setConnections(prev => [newConnection, ...prev])
+    
+    // Update usage stats
+    // In a real app, this would come from the server
+    usage.connectionsUsed = connections.length + 1
+    
+    // Close the wizard
+    setShowConnectionWizard(false)
+    
+    // Optionally refresh connections from server
+    await refreshConnections()
+  }
+  
+  // Refresh connections from server
+  async function refreshConnections() {
+    setLoading(true)
+    try {
+      const updatedConnections = await getConnections()
+      setConnections(updatedConnections)
+    } catch (error) {
+      console.error('Failed to refresh connections:', error)
+    } finally {
+      setLoading(false)
+    }
+  }
+  
+  // Delete a connection
+  async function handleDeleteConnection(connectionId: string) {
+    if (!confirm('Are you sure you want to delete this connection?')) {
+      return
+    }
+    
+    try {
+      await deleteConnection(connectionId)
+      setConnections(prev => prev.filter(c => c.id !== connectionId))
+      usage.connectionsUsed = Math.max(0, usage.connectionsUsed - 1)
+    } catch (error) {
+      console.error('Failed to delete connection:', error)
+      alert('Failed to delete connection. Please try again.')
+    }
+  }
 }
