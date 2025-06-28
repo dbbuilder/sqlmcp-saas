@@ -1,0 +1,62 @@
+{
+  "LLM_Platform": "OpenAI",
+  "OpenAI_Config": {
+    "ApiKey": "sk-your-openai-api-key-here",
+    "Model": "gpt-4-turbo",
+    "BaseUrl": "https://api.openai.com/v1",
+    "MaxTokens": 4000,
+    "Temperature": 0.1,
+    "TimeoutSeconds": 30
+  },
+  "Database_Platform": "SQLServer",
+  "SQLServer_Config": {
+    "ConnectionString": "Server=localhost,1433;Database=SampleDB;User Id=sa;Password=YourPassword123!;TrustServerCertificate=True;",
+    "CommandTimeoutSeconds": 30,
+    "ConnectionTimeoutSeconds": 15,
+    "EnableConnectionPooling": true,
+    "MaxPoolSize": 100,
+    "MinPoolSize": 0
+  },
+  "Safety_Check_Config": {
+    "Enabled": true,
+    "Allow_Only_Select_Statements": true,
+    "Block_System_Tables": true,
+    "Block_Drop_Statements": true,
+    "Block_Truncate_Statements": true,
+    "Block_Delete_Without_Where": true,
+    "Block_Update_Without_Where": true,
+    "Max_Query_Length": 10000
+,
+    "Allowed_Keywords": [
+      "SELECT", "FROM", "WHERE", "JOIN", "INNER", "LEFT", "RIGHT", "FULL", "OUTER",
+      "GROUP", "BY", "HAVING", "ORDER", "ASC", "DESC", "DISTINCT", "TOP", "UNION",
+      "AND", "OR", "NOT", "IN", "BETWEEN", "LIKE", "IS", "NULL", "EXISTS", "COUNT",
+      "SUM", "AVG", "MIN", "MAX", "CASE", "WHEN", "THEN", "ELSE", "END", "AS", "WITH"
+    ],
+    "Blocked_Keywords": [
+      "DROP", "TRUNCATE", "ALTER", "CREATE", "INSERT", "UPDATE", "DELETE",
+      "EXEC", "EXECUTE", "SP_", "XP_", "OPENROWSET", "OPENDATASOURCE", "BULK"
+    ]
+  },
+  "Logging_Config": {
+    "LogLevel": "Information",
+    "EnableConsoleLogging": true,
+    "EnableFileLogging": true,
+    "LogFilePath": "logs/application.log",
+    "BridgeLogPath": "bridge.log",
+    "MaxFileSizeMB": 50,
+    "RetainedFileCountLimit": 10,
+    "EnableStructuredLogging": true
+  },
+  "Resilience_Config": {
+    "EnableRetryPolicy": true,
+    "MaxRetryAttempts": 3,
+    "BaseDelaySeconds": 1.0,
+    "MaxDelaySeconds": 30.0,
+    "EnableCircuitBreaker": true,
+    "CircuitBreakerFailureThreshold": 5,
+    "CircuitBreakerDurationSeconds": 60.0,
+    "EnableTimeoutPolicy": true,
+    "TimeoutSeconds": 60.0
+  }
+}

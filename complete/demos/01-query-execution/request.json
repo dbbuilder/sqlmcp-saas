@@ -1,0 +1,13 @@
+{
+  "jsonrpc": "2.0",
+  "method": "tools/call",
+  "id": 1,
+  "params": {
+    "name": "query",
+    "arguments": {
+      "database": "AdventureWorks",
+      "query": "SELECT TOP 10 CustomerID, PersonID, StoreID, TerritoryID, ModifiedDate FROM Sales.Customer ORDER BY ModifiedDate DESC",
+      "timeout": 30
+    }
+  }
+}

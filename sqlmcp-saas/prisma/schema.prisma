@@ -1,0 +1,136 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// User authentication and profile
+model User {
+  id                String    @id @default(cuid())
+  email             String    @unique
+  emailVerified     DateTime?
+  name              String?
+  image             String?
+  hashedPassword    String?
+  createdAt         DateTime  @default(now())
+  updatedAt         DateTime  @updatedAt
+
+  // Relations
+  accounts          Account[]
+  sessions          Session[]
+  subscription      Subscription?
+  connections       Connection[]
+  queries           Query[]
+  apiKeys           ApiKey[]
+}
+
+// OAuth accounts
+model Account {
+  id                String  @id @default(cuid())
+  userId            String
+  type              String
+  provider          String
+  providerAccountId String
+  refresh_token     String?
+  access_token      String?
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String?
+  session_state     String?
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([provider, providerAccountId])
+}
+
+// User sessions
+model Session {
+  id           String   @id @default(cuid())
+  sessionToken String   @unique
+  userId       String
+  expires      DateTime
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+// Subscription management
+model Subscription {
+  id                String   @id @default(cuid())
+  userId            String   @unique
+  stripeCustomerId  String?  @unique
+  stripePriceId     String?
+  stripeStatus      String?
+  plan              Plan     @default(FREE)
+  currentPeriodEnd  DateTime?
+  cancelAtPeriodEnd Boolean  @default(false)
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+
+  user User @relation(fields: [userId], references: [id])
+}
+
+enum Plan {
+  FREE
+  STARTER
+  PRO
+  ENTERPRISE
+}
+
+// SQL Server connections
+model Connection {
+  id                String   @id @default(cuid())
+  userId            String
+  name              String
+  server            String
+  database          String
+  username          String
+  encryptedPassword String   // Encrypted with user-specific key
+  port              Int      @default(1433)
+  trustServerCert   Boolean  @default(false)
+  isActive          Boolean  @default(true)
+  lastTestedAt      DateTime?
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+
+  user    User    @relation(fields: [userId], references: [id])
+  queries Query[]
+
+  @@unique([userId, name])
+}
+
+// Query history and analytics
+model Query {
+  id           String     @id @default(cuid())
+  userId       String
+  connectionId String
+  query        String
+  rowCount     Int?
+  executionMs  Int?
+  success      Boolean
+  error        String?
+  createdAt    DateTime   @default(now())
+
+  user       User       @relation(fields: [userId], references: [id])
+  connection Connection @relation(fields: [connectionId], references: [id])
+
+  @@index([userId, createdAt])
+}
+
+// API keys for MCP access
+model ApiKey {
+  id          String    @id @default(cuid())
+  userId      String
+  name        String
+  key         String    @unique
+  lastUsedAt  DateTime?
+  expiresAt   DateTime?
+  isActive    Boolean   @default(true)
+  createdAt   DateTime  @default(now())
+
+  user User @relation(fields: [userId], references: [id])
+
+  @@index([key])
+}

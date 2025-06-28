@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SQLMCP.net - Revolutionizing Enterprise AI with SQL Integration</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            -webkit-print-color-adjust: exact; /* Ensures background colors print correctly */
+            print-color-adjust: exact;
+        }
+        .gradient-text {
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+        .page-break {
+            page-break-after: always;
+        }
+        @media print {
+            body {
+                margin: 0;
+                padding: 0;
+            }
+            .no-print {
+                display: none;
+            }
+            .print-container {
+                width: 100% !important;
+                max-width: 100% !important;
+                box-shadow: none !important;
+            }
+            .page-break {
+                margin-top: 2rem; /* Add some space before page break in print */
+            }
+        }
+        .hero-bg {
+            background-image: linear-gradient(to right, rgba(29, 78, 216, 0.9), rgba(30, 64, 175, 0.95)), url('https://placehold.co/1200x800/3b82f6/e0e7ff?text=Abstract+Data+Network');
+            background-size: cover;
+            background-position: center;
+        }
+        .section-bg-gray {
+            background-color: #f3f4f6; /* Tailwind gray-100 */
+        }
+        .section-bg-white {
+            background-color: #ffffff;
+        }
+        .accent-color {
+            color: #2563eb; /* Tailwind blue-600 */
+        }
+        .accent-bg {
+            background-color: #2563eb; /* Tailwind blue-600 */
+        }
+        .secondary-accent-color {
+            color: #10b981; /* Tailwind emerald-500 */
+        }
+        .secondary-accent-bg {
+            background-color: #10b981; /* Tailwind emerald-500 */
+        }
+        .sqlmcp-logo-svg {
+            width: 200px; /* Adjust width as needed */
+            height: auto; /* Maintain aspect ratio */
+        }
+
+    </style>
+</head>
+<body class="bg-gray-50 leading-relaxed text-gray-700">
+
+    <div class="print-container max-w-4xl mx-auto my-8 shadow-2xl rounded-lg overflow-hidden">
+
+        <section class="hero-bg text-white p-12 md:p-20 flex flex-col items-center justify-center text-center min-h-[calc(100vh-4rem)] md:min-h-screen">
+            <svg class="sqlmcp-logo-svg mb-8" viewBox="0 0 300 100" xmlns="http://www.w3.org/2000/svg" alt="SQLMCP.net Logo">
+                <defs>
+                    <linearGradient id="bridgeGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                        <stop offset="0%" style="stop-color:#2563eb;stop-opacity:1" />
+                        <stop offset="100%" style="stop-color:#10b981;stop-opacity:1" />
+                    </linearGradient>
+                </defs>
+                <text x="30" y="65" font-family="Inter, sans-serif" font-size="30" font-weight="bold" fill="#FFFFFF">AI</text>
+                <text x="200" y="65" font-family="Inter, sans-serif" font-size="30" font-weight="bold" fill="#FFFFFF">DATA</text>
+                <path d="M 70 60 Q 100 40, 150 40 Q 200 40, 230 60" stroke="url(#bridgeGradient)" stroke-width="8" fill="none" />
+                <rect x="70" y="60" width="10" height="15" fill="#e0e7ff" />
+                <rect x="145" y="40" width="10" height="35" fill="#e0e7ff" />
+                <rect x="220" y="60" width="10" height="15" fill="#e0e7ff" />
+                <text x="150" y="90" font-family="Inter, sans-serif" font-size="18" font-weight="600" fill="#blue-300" text-anchor="middle">SQLMCP<tspan fill="#a5b4fc">.net</tspan></text>
+            </svg>
+
+            <h1 class="text-4xl md:text-6xl font-extrabold mb-4 leading-tight">
+                SQLMCP<span class="text-blue-300">.net</span>
+            </h1>
+            <h2 class="text-2xl md:text-3xl font-semibold mb-6">
+                Your Data, Intelligently Connected. <br class="hidden md:block">Expertly Leveraged.
+            </h2>
+            <p class="text-lg md:text-xl mb-10 max-w-2xl">
+                Revolutionizing Enterprise AI by seamlessly and securely connecting Large Language Models to your SQL databases with the power of Model Control Protocol (MCP).
+            </p>
+            <a href="#contact" class="accent-bg hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-lg text-lg transition duration-300 shadow-lg no-print">
+                Unlock Your Data's Potential
+            </a>
+        </section>
+        <div class="page-break"></div>
+
+        <section class="section-bg-white p-8 md:p-16">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">The AI Data <span class="accent-color">Challenge</span>. The Unprecedented <span class="secondary-accent-color">Opportunity</span>.</h2>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto">Enterprises are eager to harness AI, but true potential is locked behind complex data integration hurdles and skill gaps.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8 items-center">
+                <div>
+                    <h3 class="text-2xl font-semibold text-gray-800 mb-3">The Bottleneck: Bridging AI and Enterprise Data</h3>
+                    <ul class="space-y-3 text-gray-600">
+                        <li class="flex items-start">
+                            <i class="fas fa-lock accent-color mr-3 mt-1"></i>
+                            <span><strong class="text-gray-700">Siloed Data:</strong> Valuable information trapped in SQL databases, inaccessible to LLMs.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-cogs accent-color mr-3 mt-1"></i>
+                            <span><strong class="text-gray-700">Complex Integrations:</strong> Custom solutions are costly, time-consuming, and hard to scale.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-shield-alt accent-color mr-3 mt-1"></i>
+                            <span><strong class="text-gray-700">Security & Governance:</strong> Ensuring secure, compliant AI access to sensitive data is paramount.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-users accent-color mr-3 mt-1"></i>
+                            <span><strong class="text-gray-700">Skills Gap:</strong> Teams need new tools and expertise to navigate AI-data landscapes effectively.</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="rounded-lg overflow-hidden shadow-lg">
+                    <img src="https://placehold.co/600x400/e0e7ff/3b82f6?text=Challenge+vs+Opportunity" alt="Data Integration Challenge" class="w-full h-auto" onerror="this.src='https://placehold.co/600x400/e0e7ff/3b82f6?text=Data+Challenge'; this.onerror=null;">
+                </div>
+            </div>
+            <div class="mt-12 text-center">
+                 <p class="text-xl font-semibold text-gray-800">
+                    The <span class="secondary-accent-color">Model Control Protocol (MCP)</span> is the key. SQLMCP.net makes it your <span class="accent-color">enterprise reality</span>.
+                </p>
+            </div>
+        </section>
+        <div class="page-break"></div>
+
+        <section class="section-bg-gray p-8 md:p-16">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-2">Introducing <span class="gradient-text from-blue-600 to-emerald-500">SQLMCP.net</span></h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">Your comprehensive solution for intelligent, secure, and dynamic AI-SQL integration, built on the revolutionary Model Control Protocol.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8 items-center">
+                <div class="rounded-lg overflow-hidden shadow-lg">
+                     <img src="https://placehold.co/600x450/3b82f6/ffffff?text=SQLMCP.net+Architecture+Diagram" alt="SQLMCP.net Solution" class="w-full h-auto" onerror="this.src='https://placehold.co/600x450/3b82f6/ffffff?text=Solution+Diagram'; this.onerror=null;">
+                </div>
+                <div>
+                    <h3 class="text-2xl font-semibold text-gray-800 mb-4">What is Model Control Protocol (MCP)?</h3>
+                    <p class="text-gray-600 mb-4">MCP is an open standard creating a universal language for AI models to interact with external tools and data sources. Think of it as a USB-C port for AI – one standard, many connections.</p>
+
+                    <h3 class="text-2xl font-semibold text-gray-800 mb-4">How SQLMCP.net Leverages MCP:</h3>
+                    <ul class="space-y-3 text-gray-600">
+                        <li class="flex items-start">
+                            <i class="fas fa-plug secondary-accent-color mr-3 mt-1"></i>
+                            <span><strong class="text-gray-700">Universal Connectivity:</strong> Connect any SQL database to any LLM, breaking down silos.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-tachometer-alt secondary-accent-color mr-3 mt-1"></i>
+                            <span><strong class="text-gray-700">Enterprise Grade:</strong> Robust, scalable, and secure solutions designed for mission-critical applications.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-brain secondary-accent-color mr-3 mt-1"></i>
+                            <span><strong class="text-gray-700">Intelligent Interaction:</strong> Enable dynamic querying, analysis, and insight generation directly from your data.</span>
+                        </li>
+                         <li class="flex items-start">
+                            <i class="fas fa-chalkboard-teacher secondary-accent-color mr-3 mt-1"></i>
+                            <span><strong class="text-gray-700">Complete Enablement:</strong> Beyond products, we offer consulting, coaching, and DBA services to ensure your success.</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <div class="page-break"></div>
+
+        <section class="section-bg-white p-8 md:p-16">
+            <div class="grid md:grid-cols-2 gap-12">
+                <div>
+                    <h3 class="text-2xl font-bold text-gray-800 mb-4"><i class="fas fa-eye accent-color mr-2"></i>Our Vision</h3>
+                    <p class="text-gray-600 mb-6">To be the leading enabler of secure, dynamic, and insightful AI-driven data interaction for enterprises globally, fostering a data-empowered workforce through the Model Control Protocol and seamless SQL integration.</p>
+
+                    <h3 class="text-2xl font-bold text-gray-800 mb-4"><i class="fas fa-bullseye accent-color mr-2"></i>Our Mission</h3>
+                    <p class="text-gray-600">To provide enterprises with a comprehensive suite of products and expert services that leverage MCP to connect SQL databases to LLMs, capture all AI activity for analysis, and revolutionize how data is used – enabling everyone to achieve more, faster, and with greater impact.</p>
+                </div>
+                <div>
+                    <h3 class="text-2xl font-bold text-gray-800 mb-4"><i class="fas fa-gem accent-color mr-2"></i>Our Core Values</h3>
+                    <ul class="space-y-2 text-gray-600">
+                        <li><i class="fas fa-lightbulb secondary-accent-color mr-2"></i>Innovation</li>
+                        <li><i class="fas fa-shield-alt secondary-accent-color mr-2"></i>Security</li>
+                        <li><i class="fas fa-link secondary-accent-color mr-2"></i>Interoperability</li>
+                        <li><i class="fas fa-chart-line secondary-accent-color mr-2"></i>Insight-Driven</li>
+                        <li><i class="fas fa-building secondary-accent-color mr-2"></i>Enterprise-Ready</li>
+                        <li><i class="fas fa-users-cog secondary-accent-color mr-2"></i>Empowerment</li>
+                    </ul>
+                </div>
+            </div>
+             <div class="mt-12 rounded-lg overflow-hidden shadow-lg">
+                <img src="https://placehold.co/1200x400/e0e7ff/3b82f6?text=Vision+of+Connected+Data+and+AI" alt="Vision of Connected Data" class="w-full h-auto object-cover" onerror="this.src='https://placehold.co/1200x400/e0e7ff/3b82f6?text=Our+Vision'; this.onerror=null;">
+            </div>
+        </section>
+        <div class="page-break"></div>
+
+        <section class="section-bg-gray p-8 md:p-16">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-2">The SQLMCP.net <span class="accent-color">Advantage</span></h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">Why choose SQLMCP.net for your enterprise AI-SQL integration needs?</p>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
+                    <div class="text-3xl accent-color mb-3"><i class="fas fa-cubes"></i></div>
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Holistic Offering</h4>
+                    <p class="text-gray-600 text-sm">End-to-end solutions: powerful products combined with expert consulting, coaching, and DBA services.</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
+                    <div class="text-3xl accent-color mb-3"><i class="fas fa-globe"></i></div>
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Universal SQL Connectivity</h4>
+                    <p class="text-gray-600 text-sm">Engineered to connect with ANY SQL database server, offering unparalleled flexibility.</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
+                    <div class="text-3xl accent-color mb-3"><i class="fas fa-user-shield"></i></div>
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Enterprise-Grade Security</h4>
+                    <p class="text-gray-600 text-sm">Advanced security, role-based access, auditability, scalability, and robust performance.</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
+                    <div class="text-3xl accent-color mb-3"><i class="fas fa-database"></i></div>
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Centralized AI Activity Hub</h4>
+                    <p class="text-gray-600 text-sm">Our "Bridge" product captures all AI interactions for crucial oversight, analysis, and learning.</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
+                    <div class="text-3xl accent-color mb-3"><i class="fas fa-rocket"></i></div>
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Future-Proof Strategy</h4>
+                    <p class="text-gray-600 text-sm">Align with the open MCP standard, ensuring compatibility and reducing vendor lock-in.</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
+                    <div class="text-3xl accent-color mb-3"><i class="fas fa-hands-helping"></i></div>
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Accelerated Value & Skills</h4>
+                    <p class="text-gray-600 text-sm">Our services speed up adoption and empower your teams for independent innovation.</p>
+                </div>
+            </div>
+        </section>
+        <div class="page-break"></div>
+
+        <section class="section-bg-white p-8 md:p-16">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-2">Our Comprehensive <span class="gradient-text from-blue-600 to-emerald-500">Offerings</span></h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">An integrated suite of products and expert services to power your AI-data journey.</p>
+            </div>
+
+            <div>
+                <h3 class="text-2xl font-semibold text-gray-800 mb-6 text-center md:text-left"><i class="fas fa-box-open accent-color mr-2"></i>Product Suite</h3>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+                    <div class="border border-gray-200 p-6 rounded-lg hover:shadow-lg transition-shadow">
+                        <h4 class="text-xl font-bold text-blue-600 mb-2">SQLMCP.net Design</h4>
+                        <p class="text-sm text-gray-600">Visually model and manage the semantic layer between SQL databases and LLMs via MCP.</p>
+                    </div>
+                    <div class="border border-gray-200 p-6 rounded-lg hover:shadow-lg transition-shadow">
+                        <h4 class="text-xl font-bold text-blue-600 mb-2">SQLMCP.net Code</h4>
+                        <p class="text-sm text-gray-600">Advanced toolkit & SDKs to rapidly build, test, and deploy custom MCP servers and tools.</p>
+                    </div>
+                    <div class="border border-gray-200 p-6 rounded-lg hover:shadow-lg transition-shadow">
+                        <h4 class="text-xl font-bold text-blue-600 mb-2">SQLMCP.net Query</h4>
+                        <p class="text-sm text-gray-600">Intelligent MCP-enabled interface for dynamic and secure natural language querying of SQL databases.</p>
+                    </div>
+                    <div class="border border-gray-200 p-6 rounded-lg hover:shadow-lg transition-shadow">
+                        <h4 class="text-xl font-bold text-blue-600 mb-2">SQLMCP.net Analysis</h4>
+                        <p class="text-sm text-gray-600">Powerful AI-driven analytical engine for complex data analysis and insight generation from SQL.</p>
+                    </div>
+                    <div class="border border-gray-200 p-6 rounded-lg hover:shadow-lg transition-shadow col-span-1 md:col-span-2 lg:col-span-1">
+                        <h4 class="text-xl font-bold text-blue-600 mb-2">SQLMCP.net Bridge</h4>
+                        <p class="text-sm text-gray-600">Captures, logs, and stores all AI activity for comprehensive audit, analysis, and optimization.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <h3 class="text-2xl font-semibold text-gray-800 mb-6 text-center md:text-left"><i class="fas fa-concierge-bell secondary-accent-color mr-2"></i>Expert Services</h3>
+                <div class="grid md:grid-cols-3 gap-6">
+                    <div class="border border-gray-200 p-6 rounded-lg hover:shadow-lg transition-shadow">
+                        <h4 class="text-xl font-bold text-emerald-600 mb-2">Consulting</h4>
+                        <p class="text-sm text-gray-600">Strategic guidance and implementation support to tailor solutions to your unique needs.</p>
+                    </div>
+                    <div class="border border-gray-200 p-6 rounded-lg hover:shadow-lg transition-shadow">
+                        <h4 class="text-xl font-bold text-emerald-600 mb-2">Coaching</h4>
+                        <p class="text-sm text-gray-600">Hands-on training to build team proficiency in SQLMCP.net, MCP, and best practices.</p>
+                    </div>
+                    <div class="border border-gray-200 p-6 rounded-lg hover:shadow-lg transition-shadow">
+                        <h4 class="text-xl font-bold text-emerald-600 mb-2">Database Administration</h4>
+                        <p class="text-sm text-gray-600">Specialized DBA services to optimize your SQL databases for AI workloads via our tool suite.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class="page-break"></div>
+
+        <section class="section-bg-gray p-8 md:p-16">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Who We <span class="accent-color">Help</span></h2>
+                    <p class="text-lg text-gray-600 mb-6">SQLMCP.net empowers organizations across industries that rely on SQL data and seek to leverage AI for a competitive edge.</p>
+                    <ul class="space-y-3 text-gray-700 mb-8">
+                        <li><i class="fas fa-landmark accent-color mr-2"></i>Financial Institutions</li>
+                        <li><i class="fas fa-briefcase-medical accent-color mr-2"></i>Healthcare Providers</li>
+                        <li><i class="fas fa-shopping-cart accent-color mr-2"></i>Retail & E-commerce</li>
+                        <li><i class="fas fa-industry accent-color mr-2"></i>Manufacturing Companies</li>
+                        <li><i class="fas fa-users accent-color mr-2"></i>And any enterprise with:
+                            <ul class="list-disc list-inside ml-6 text-sm text-gray-600">
+                                <li>Data Scientists & AI Developers</li>
+                                <li>Database Administrators</li>
+                                <li>Business Analysts & Decision Makers</li>
+                                <li>IT Leaders driving digital transformation</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <div class="rounded-lg overflow-hidden shadow-xl">
+                    <img src="https://placehold.co/600x700/3b82f6/ffffff?text=Diverse+Teams+Collaborating" alt="Diverse teams using SQLMCP.net" class="w-full h-auto object-cover" onerror="this.src='https://placehold.co/600x700/3b82f6/ffffff?text=Team+Collaboration'; this.onerror=null;">
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="accent-bg text-white p-8 md:p-16 text-center">
+            <h2 class="text-3xl md:text-4xl font-extrabold mb-4">Ready to Revolutionize Your Data Interaction?</h2>
+            <p class="text-lg md:text-xl mb-8 max-w-2xl mx-auto">
+                Connect with SQLMCP.net today. Let's explore how our products and services can unlock unparalleled insights and efficiency for your enterprise.
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-6">
+                <a href="mailto:sales@sqlmcp.net?subject=Inquiry%20about%20SQLMCP.net" class="bg-white hover:bg-gray-100 text-blue-600 font-bold py-3 px-8 rounded-lg text-lg transition duration-300 shadow-md no-print">
+                    <i class="fas fa-envelope mr-2"></i> Email Us: sales@sqlmcp.net
+                </a>
+                <a href="tel:+1-555-SQL-MCP0" class="bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-3 px-8 rounded-lg text-lg transition duration-300 shadow-md no-print">
+                    <i class="fas fa-phone mr-2"></i> Call Us: +1 (555) SQL-MCP0
+                </a>
+            </div>
+            <p class="mt-8 text-sm text-blue-100">Visit our website: www.sqlmcp.net (Conceptual)</p>
+        </section>
+
+        <footer class="section-bg-white text-center p-6 border-t border-gray-200">
+            <p class="text-sm text-gray-500">&copy; <span id="currentYear"></span> SQLMCP.net. All rights reserved. (Conceptual Company)</p>
+            <p class="text-xs text-gray-400 mt-1">123 Innovation Drive, Tech City, TX 75001</p>
+        </footer>
+    </div>
+
+    <script>
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>
